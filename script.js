@@ -28,19 +28,28 @@ console.log(question2);
 //                    20 : Middle age
 //                    22 : Old
 
-const age = '16';
+const prompt = require("prompt-sync")();
+
+let age;
+
+do {
+    age = parseInt(prompt("Are u between young, middle aged or old? Lets find it out!"), 10);
+} while (age < 18 || age > 22);
 
 switch (age) {
-    case '18':
-        console.log('Young');
+    case 18:
+        console.log("Young");
         break;
-    case '20':
-        console.log('Middle Age');
+    case 20:
+        console.log("Middle age");
         break;
-    case '22':
-        console.log('Old');
+    case 22:
+        console.log("Old");
         break;
+    default:
+        console.log("u are not between 18-22");
 }
+
 /*
 TASK 3
  const task3A = ['Dog', 'Horse', 'Cow']
@@ -66,35 +75,35 @@ if(addingTheAnimals.includes('Co')){
 }
 */
 
-// Task 4
 class task4 {
-    constructor(
-        type,
-        color,
-        amount,
-        inStore
-    ) {
-        this.type = type
-        this.color = color
-        this.amount = amount
-        this.inStore = inStore
+    constructor(type, color, amount, inStore) {
+        this.type = type;
+        this.color = color;
+        this.amount = amount;
+        this.inStore = inStore;
+    }
+
+    changeAmount(newAmount) {
+        this.amount = newAmount;
+    }
+
+    changeColor(newColor) {
+        this.color = newColor;
+    }
+
+    toggleInStore() {
+        this.inStore = !this.inStore;
     }
 }
 
-const valuesForTask4 = new task4(
-    "Rose",
-    "Red",
-    5,
-    true
-);
-console.log(valuesForTask4)
+const valuesForTask4 = new task4("rose", "Red", 5, true);
+console.log("Original situation:", valuesForTask4);
+// för att ändra värden 
+valuesForTask4.changeColor("Yellow");
+valuesForTask4.changeAmount(4);
+valuesForTask4.toggleInStore();
 
-Object.assign(valuesForTask4, {
-    color: "Yellow",
-    amount: 4,
-    inStore: "no"
-})
-console.log(valuesForTask4)
+console.log(`After changes: Type: ${valuesForTask4.type} , Color: ${valuesForTask4.color} , Amount: ${valuesForTask4.amount} , inStore: ${valuesForTask4.inStore ? "yes" : "no"}`);
 
 // task 4.2
 const task42 = document.querySelector('.maincontent');
